@@ -38,10 +38,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mptt',
+    'crispy_forms',
+    'rest_framework',
+    'drf_yasg',
+    'debug_toolbar',
+    
 #apps
     'shop',
     'authentication',
     'main',
+    'cart',
+    'orders',
+    'wishlist',
+    'payment',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -52,9 +63,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'
+LOGIN_REDIRECT_URL = '/'
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 TEMPLATES = [
     {
@@ -132,3 +148,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+PAYPAL_RECEIVER_EMAIL = 'mypaypalemail@myshop.com'
+PAYPAL_TEST = True
